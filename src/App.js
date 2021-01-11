@@ -7,6 +7,7 @@ import categoryUtils from "./models/CategoroiesGetter";
 import Game from "./pages/Game";
 import { HashRouter, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import Question from './components/Question';
 function App(props) {
   const [players,SetPlayers] =useState([]);
   const [counter,SetCounter] =useState(1);
@@ -16,7 +17,7 @@ function App(props) {
   useEffect(() => {
     let c =categoryUtils.getCategories().then (response=> { 
       console.log (response);
-    
+      
       SetCategories(response);
   }, );
   },[]);
@@ -52,11 +53,12 @@ function App(props) {
   return (
     <div className="App">
       <header className="App-header">
+      
       <HashRouter>
 
 <Route exact path="/" >  <PlayersSetter callback={check} players={players} counter={counter} /></Route>
 <Route exact path="/game" >  <Game  players={players} turn={turn} callback={SwitchTurn} categories={categories} /></Route>
-
+<Route exact path="/ques" > <Question players={players} callback={SwitchTurn} /> </Route>
 </HashRouter>
 
    <div>  {t} </div>

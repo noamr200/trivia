@@ -1,7 +1,11 @@
 import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import CategeryChoose from '../components/CategoryChoose';
+import { HashRouter, Route } from "react-router-dom";
 import categoryUtils from "../models/CategoroiesGetter";
+import Question from '../components/Question';
+import PlayersSetter from '../components/PlayersSetter';
+import  { Redirect } from 'react-router-dom';
 function Game(props)
 {
 
@@ -15,7 +19,8 @@ function Game(props)
         return [n1,n2,n3];
     }
     let CategoriesRandom=props.categories;
-    
+    let callback=props.callback;
+    console.log (callback);
     let a=RandomThree();
     let turn=props.turn;
    let cat1=CategoriesRandom[a[0]];
@@ -24,10 +29,20 @@ function Game(props)
     console.log (cat1);
     if (!props.turn) turn=0;
     console.log (props.players,props.turn);
-    let str="Player Name "+props.players[turn].name+" "+ "Player "+Number(turn+1);
+    
+    if (props.players[turn]===undefined) 
+    {
+       alert ("No players where set!");
+       return (<Redirect to='/' />);
+    }
+
+    let str="Player Name "+props.players[turn].name+ " Player "+Number(turn+1);
   
     return (<div>GAME {str} 
-      <CategeryChoose  cat1={cat1}  cat2={cat2}  cat3={cat3}/>
-     <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button> </div>)
+    <CategeryChoose  cat1={cat1}  cat2={cat2}  cat3={cat3}  />
+        <HashRouter>
+    <Route exact path="/ques" > <Question/> </Route>
+     </HashRouter>
+     <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </div>)
 }
 export default Game;
