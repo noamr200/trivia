@@ -3,14 +3,44 @@ import Welcome from  "./pages/Welcome";
 import PlayersSetter from "./components/PlayersSetter";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import categoryUtils from "./models/CategoroiesGetter";
+import Game from "./pages/Game";
+import { HashRouter, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 function App(props) {
   const [players,SetPlayers] =useState([]);
   const [counter,SetCounter] =useState(1);
+  const [turn,SetTurn]=useState(0); //Turn is the index (starts with 0)
+  const [categories,SetCategories]=useState([]);
+  
+  useEffect(() => {
+    let c =categoryUtils.getCategories().then (response=> { 
+      console.log (response);
+    
+      SetCategories(response);
+  }, );
+  },[]);
+
  let t= players.map ((item,index) =>
   {
       return (<p key={index}>Player {item.number} your name is :  {item.name} </p>  );
   });
+   
+  function SwitchTurn(e)
+  {
+    console.log (counter);
+    if (turn>=counter-2)  
+    {
+      SetTurn(0);
+      console.log ("0 tt");
+    }
+    else
+    {
+      SetTurn( (turn+1));
+      console.log (turn ,"tt");
+    }
+    console.log("dkdkdkd",turn);
+  }
 
   function check(e)
   {
@@ -18,12 +48,17 @@ function App(props) {
     SetCounter(counter+1);
     console.log ("players",players);
   }
-  
+ 
   return (
     <div className="App">
       <header className="App-header">
-     <Welcome/>
-    <PlayersSetter callback={check} players={players} counter={counter} />
+      <HashRouter>
+
+<Route exact path="/" >  <PlayersSetter callback={check} players={players} counter={counter} /></Route>
+<Route exact path="/game" >  <Game  players={players} turn={turn} callback={SwitchTurn} categories={categories} /></Route>
+
+</HashRouter>
+
    <div>  {t} </div>
       </header>
     </div>
