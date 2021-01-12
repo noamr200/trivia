@@ -24,7 +24,7 @@ function App(props) {
 
  let t= players.map ((item,index) =>
   {
-      return (<p key={index}>Player {item.number} your name is :  {item.name} </p>  );
+      return (<p key={index}>Player {item.number} your name is :  {item.name}  You have {item.score} Points</p>  );
   });
    
   function SwitchTurn(e)
@@ -58,7 +58,7 @@ function App(props) {
 
 <Route exact path="/" >  <PlayersSetter callback={check} players={players} counter={counter} /></Route>
 <Route exact path="/game" >  <Game  players={players} turn={turn} callback={SwitchTurn} categories={categories} /></Route>
-<Route exact path="/ques" > <Question players={players} callback={SwitchTurn} /> </Route>
+<Route exact path="/ques" > <Question players={players} turn={turn} callback={SwitchTurn} /> </Route>
 </HashRouter>
 
    <div>  {t} </div>
