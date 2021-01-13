@@ -18,14 +18,15 @@ function Game(props)
         n3=Math.floor(Math.random() * 23);
         return [n1,n2,n3];
     }
+
     let CategoriesRandom=props.categories;
     let callback=props.callback;
     console.log (callback);
     let a=RandomThree();
     let turn=props.turn;
-   let cat1=CategoriesRandom[a[0]];
-   let cat2=CategoriesRandom[a[1]];
-   let cat3=CategoriesRandom[a[2]];
+    let cat1=CategoriesRandom[a[0]];
+    let cat2=CategoriesRandom[a[1]];
+    let cat3=CategoriesRandom[a[2]];
     console.log (cat1);
     if (!props.turn) turn=0;
     console.log (props.players,props.turn);
@@ -40,9 +41,7 @@ function Game(props)
   
     return (<div>GAME {str} 
     <CategeryChoose  cat1={cat1}  cat2={cat2}  cat3={cat3}  />
-        <HashRouter>
-    <Route exact path="/ques" > <Question/> </Route>
-     </HashRouter>
-     <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </div>)
+    
+        <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </div>)
 }
 export default Game;

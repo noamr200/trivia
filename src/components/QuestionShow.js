@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Answer from "./Answer";
-
+import Button from 'react-bootstrap/Button';
+import React, { useEffect } from 'react';
 function QuestionShow(props)
 {
     console.log (props.ques);
@@ -8,14 +9,23 @@ function QuestionShow(props)
     let points=props.points;
     let turn =props.turn;
     const [showAnswer,SetShowAnswer]=useState(false); //Don't show the answer until the player answered
+    const [answersState,SetAnswerState]=useState([]);
+    const [AnswerIndex,SetAnswerIndex]=useState(-1);
+    const [res,SetRes]=useState("");
+    console.log(p.question);
     function getRandomInt(max) 
     {
         return Math.floor(Math.random() * Math.floor(max));
     }
-    let correctIndex=getRandomInt(4);
+    let correctIndex;
 
     let answers=[];
-    answers[correctIndex]=p.correct_answer+"--- Cheat --- this is  the correct answer";
+    
+    useEffect(() => {
+       
+        correctIndex=getRandomInt(4);
+        answers=[];
+        answers[correctIndex]=p.correct_answer+"--- Cheat --- this is  the correct answer";
     let j=0;
     for (let i=0;i<4;++i)
     {
@@ -26,23 +36,45 @@ function QuestionShow(props)
         }
         
     }
-    
+    SetAnswerState(answers);
+    SetAnswerIndex(correctIndex);
+      },[]);
+
+  
     function answer(e)
     {
         console.log (e);
+        console.log ("target",e.target.value,"correctindex",AnswerIndex);
+        if (showAnswer) 
+        {
+            return;
+        }
+        if ((Number(e.target.value-1))===AnswerIndex)
+        {
+            SetRes("You got it right! and you get "+ points+" points!");
+            props.players[turn].score+=points;
+        }
+        else 
+        {
+            SetRes("You were wrong! and you will lose "+ points+" points!");
+            props.players[turn].score-=points;
+        }
+        SetShowAnswer(true);
+        
     }
     
     console.log ("props",p);
-    const AnswerComponent=<div><Answer currentAnswerText={p.correct_answer} currentAnswerIndex={correctIndex}/> </div>
-   //TODO decode the question text
+    const AnswerComponent=<div><Answer currentAnswerText={p.correct_answer} currentAnswerIndex={AnswerIndex}  res={res} /> </div>
+    const ContinueButton= <div> <a href="#/game"> <Button variant="success" onClick={props.callback} >Conitune Playing!</Button>  </a></div> 
    return (<div>  <p>"TODO" </p> <p> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>
-     <p>  Question: {decodeURI(p.question)}  </p>
+     <p>  Question:<span dangerouslySetInnerHTML={{__html: p.question}}></span>  </p>
         Answers:  
-        <p>1.{answers[0]} </p>
-        <p>2.{answers[1]} </p> 
-        <p>3.{answers[2]} </p>
-        <p>4.{answers[3]} </p>
+        <p><Button variant="primary" value="1" onClick={answer}>1.</Button>{answersState[0]} </p>
+        <p><Button variant="primary" value="2" onClick={answer}>2.</Button>{answersState[1]} </p> 
+        <p><Button variant="primary" value="3" onClick={answer}>3.</Button>{answersState[2]} </p>
+        <p><Button variant="primary" value="4" onClick={answer}>4.</Button>{answersState[3]} </p>
         {showAnswer ?  AnswerComponent :""} 
+        { showAnswer ?  ContinueButton :"" }
     </div>)
 }
 export default QuestionShow;

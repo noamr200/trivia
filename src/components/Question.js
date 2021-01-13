@@ -12,17 +12,30 @@ function Question(props)
     const location = useLocation();
     console.log(location.search);
     let r=null;
+    let difficulty="medium";
     let catNum=location.search.charAt(5)+location.search.charAt(6);
     let points=location.search.charAt(location.search.length-1)*2000;
+    if (points===2000) 
+    {
+        difficulty="easy";
+    }
+    else if (points===4000)
+    {
+        difficulty="medium";
+    }
+    else //hard 
+    {
+        difficulty="hard";
+    }
     console.log ("cat",catNum);
     useEffect(() => {
-        r =QuestUtils.QuestionGetter(catNum).then (response=> { 
+        r =QuestUtils.QuestionGetter(catNum,difficulty).then (response=> { 
             console.log (response.data.results);
             SetQues(response.data.results);
         }, );
-    },[ques!=null]);
+    },[]);
     console.log ("pp",props.callback);
-    const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players}/>;
+    const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players} callback={props.callback}/>;
     return (<div> Question Here: {ques!=null? cond:"loading"} 
     <a href="#/game"> <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </a>
      </div>);

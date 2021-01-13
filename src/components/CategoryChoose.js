@@ -8,9 +8,9 @@ function CategeryChoose(props)
     let id3=Number(props.cat3.id);
     console.log (id1);
     return (<div>
-        <a href={"#/ques?cat="+id1+"&type=1"}> <p>Category 1 : {cat1.name} $2000</p> </a>
-        <a href={"#/ques?cat="+id2+"&type=2"}> <p>Category 2 : {cat2.name} $4000</p> </a>
-        <a href={"#/ques?cat="+id3+"&type=3"}> <p>Category 3 : {cat3.name} $8000</p> </a>
+        <a href={"#/ques?cat="+id1+"&type=1"}> <p>Category 1 : {cat1.name} ${1*2000} (easy)</p> </a>
+        <a href={"#/ques?cat="+id2+"&type=2"}> <p>Category 2 : {cat2.name} ${2*2000} (medium) </p> </a>
+        <a href={"#/ques?cat="+id3+"&type=3"}> <p>Category 3 : {cat3.name} ${3*2000} (hard)</p> </a>
     </div>)
 }
 export default CategeryChoose;

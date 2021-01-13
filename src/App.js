@@ -13,7 +13,7 @@ function App(props) {
   const [counter,SetCounter] =useState(1);
   const [turn,SetTurn]=useState(0); //Turn is the index (starts with 0)
   const [categories,SetCategories]=useState([]);
-  
+  const [rounds,SetRounds]=useState(0);
   useEffect(() => {
     let c =categoryUtils.getCategories().then (response=> { 
       console.log (response);
@@ -27,6 +27,14 @@ function App(props) {
       return (<p key={index}>Player {item.number} your name is :  {item.name}  You have {item.score} Points</p>  );
   });
    
+  function setNumberOfRounds(e)
+  {
+    console.log ("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee rounds",e);
+    let roundall=e*counter;
+    console.log (roundall);
+    SetRounds(roundall);
+  }
+
   function SwitchTurn(e)
   {
     console.log (counter);
@@ -40,6 +48,7 @@ function App(props) {
       SetTurn( (turn+1));
       console.log (turn ,"tt");
     }
+    SetRounds(rounds-1);
     console.log("dkdkdkd",turn);
   }
 
@@ -56,12 +65,13 @@ function App(props) {
       
       <HashRouter>
 
-<Route exact path="/" >  <PlayersSetter callback={check} players={players} counter={counter} /></Route>
+<Route exact path="/" >  <PlayersSetter callback={check} RoundsCallback={setNumberOfRounds} players={players} counter={counter} /></Route>
 <Route exact path="/game" >  <Game  players={players} turn={turn} callback={SwitchTurn} categories={categories} /></Route>
 <Route exact path="/ques" > <Question players={players} turn={turn} callback={SwitchTurn} /> </Route>
 </HashRouter>
 
    <div>  {t} </div>
+   <p>{rounds} Rounds Left</p>
       </header>
     </div>
   );
