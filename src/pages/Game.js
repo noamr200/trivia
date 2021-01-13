@@ -5,6 +5,7 @@ import { HashRouter, Route } from "react-router-dom";
 import categoryUtils from "../models/CategoroiesGetter";
 import Question from '../components/Question';
 import PlayersSetter from '../components/PlayersSetter';
+import Winner from "../components/Winner";
 import  { Redirect } from 'react-router-dom';
 function Game(props)
 {
@@ -38,10 +39,11 @@ function Game(props)
     }
 
     let str="Player Name "+props.players[turn].name+ " Player "+Number(turn+1);
-  
+    const Categories=  <CategeryChoose  cat1={cat1}  cat2={cat2}  cat3={cat3}  />
+    const winner= <Winner players={props.players}/>
     return (<div>GAME {str} 
-    <CategeryChoose  cat1={cat1}  cat2={cat2}  cat3={cat3}  />
-    
+
+            {props.rounds!=0?Categories:winner}
         <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </div>)
 }
 export default Game;
