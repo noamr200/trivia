@@ -1,0 +1,17 @@
+.categories>a>p
+{
+    border-style: groove;
+    background-color:lemonchiffon;
+    border-color:lemonchiffon;
+    border-radius:2px;
+}
+.categories>a>p:hover
+{
+  text-decoration: none;
+  border-color:burlywood;
+}
+.categories>a
+{
+    text-decoration: none;
+    border-color:burlywood;
+}

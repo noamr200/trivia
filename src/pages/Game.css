@@ -1,0 +1,24 @@
+.details
+{
+    border-style:groove;
+    background-color: darkolivegreen;
+    color:khaki;
+    font-weight: bold;
+}
+.details:hover
+{
+    color:darkkhaki;
+    border-color:lightyellow;
+}
+.choose
+{
+    border-style:groove;
+    background-color: darkorange;
+    color:blanchedalmond;
+    font-weight: bold;
+}
+.choose:hover
+{
+    color:darkgoldenrod;
+    border-color:bisque;
+}
