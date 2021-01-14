@@ -45,21 +45,21 @@ function PlayersSetter(props)
     return (<div>
         <Welcome/>
 
-        <p>Please Choose number of rounds per player:</p>
+        <p>Please Choose number of Questions per player:</p>
         <select className="select-css" defaultValue={DEFAULT_ROUNDS_NUMBER} onChange={e => setRounds(e.target.value)}>
                         <option value="2">2(dev only)</option>
-                        <option value="10">10 Rounds  Because I like a game to be short!</option>
-                        <option value="20">20 Rounds Because I Still like it short but not too much</option>
-                        <option value="30">30 Rounds I Like A modernate length</option>
-                        <option value="40">40 Rounds I like it long but not too long</option>
-                        <option value="50">50 Rounds Let's sit  down for ages </option>
+                        <option value="10">10 Questions  Because I like a game to be short!</option>
+                        <option value="20">20 Questions Because I Still like it short but not too much</option>
+                        <option value="30">30 Questions I Like A modernate length</option>
+                        <option value="40">40 Questions I like it long but not too long</option>
+                        <option value="50">50 Questions Let's sit  down for ages </option>
                     </select>
 
 
         <form>
            
-            <p><b>Please Enter your name player {n} </b></p>
-            <b>Your Name:  </b><input type="text"  onChange={e => setName(e.target.value)}  /><br/>
+            <p className="please" ><b>Please Enter your name player {n} </b></p>
+            <b>Your Name:  </b><input type="text" placeholder="Enter your name" onChange={e => setName(e.target.value)}  /><br/>
             <p></p>  
 
             <Button variant="primary" onClick={add}>{n>=2?"Add Another Player": "Add player"}</Button>

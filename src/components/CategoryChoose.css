@@ -4,6 +4,8 @@
     background-color:lemonchiffon;
     border-color:lemonchiffon;
     border-radius:2px;
+    font-family: 'Potta One', cursive;
+    text-align: left;
 }
 .categories>a>p:hover
 {

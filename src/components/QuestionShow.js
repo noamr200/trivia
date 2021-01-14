@@ -45,12 +45,12 @@ function QuestionShow(props)
     function answer(e)
     {
         console.log (e);
-        console.log ("target",e.target.value,"correctindex",AnswerIndex);
+        console.log ("target",e,"correctindex",AnswerIndex);
         if (showAnswer) 
         {
             return;
         }
-        if ((Number(e.target.value-1))===AnswerIndex)
+        if ((Number(e-1))===AnswerIndex)
         {
             SetRes("You got it right! and you get "+ points+" points!");
             props.players[turn].score+=points;
@@ -71,20 +71,28 @@ function QuestionShow(props)
      <p>   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
         Answers:  
         <p>
-            <Button className="my-btn" variant="primary" value="1" onClick={answer}>1.</Button> 
+            <Button className="my-btn" variant="primary" value="1" onClick={() => answer(1)}>1.
             <span dangerouslySetInnerHTML={{__html:answersState[0]}}></span>  
+            </Button> 
+            
         </p>
         <p>
-            <Button className="my-btn" variant="primary" value="2" onClick={answer}>2.</Button>
+            <Button className="my-btn" variant="primary" value="2" onClick={() => answer(2)}>2.
             <span dangerouslySetInnerHTML={{__html:answersState[1]}}></span> 
+            </Button>
+           
         </p> 
         <p>
-            <Button  className="my-btn" variant="primary" value="3" onClick={answer}>3.</Button>
+            <Button  className="my-btn" variant="primary" value="3" onClick={() => answer(3)}>3.
             <span dangerouslySetInnerHTML={{__html:answersState[2]}}></span> 
+            </Button>
+           
         </p>
         <p>
-            <Button className="my-btn" variant="primary" value="4" onClick={answer}>4.</Button>
+            <Button className="my-btn" variant="primary" value="4" onClick={() => answer(4)}>4.
             <span dangerouslySetInnerHTML={{__html:answersState[3]}}></span> 
+            </Button>
+           
         </p>
         {showAnswer ?  AnswerComponent :""} 
         {showAnswer ?  ContinueButton :"" }
