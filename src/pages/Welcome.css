@@ -1,0 +1,11 @@
+.title
+{
+    color:crimson;
+    font-family: 'Roboto';
+    font-weight: bolder;
+    opacity: 0.8;
+}
+.title:hover
+{
+    opacity: 1;
+}

@@ -12,8 +12,8 @@ function Game(props)
 
     function RandomThree()
     {
-        //TODO check categories not identical;
-        let n1,n2,n3;
+        //Difficulty level makes questions impossible to be identical
+        let n1=-1,n2=-1,n3=-1;
         n1=Math.floor(Math.random() * 23);
         n2=Math.floor(Math.random() * 23);
         n3=Math.floor(Math.random() * 23);
@@ -34,13 +34,13 @@ function Game(props)
     
     if (props.players[turn]===undefined) 
     {
-       alert ("No players where set!");
+       //alert ("No players where set!");
        return (<Redirect to='/' />);
     }
 
     let str="Player Name "+props.players[turn].name+ " Player "+Number(turn+1);
     const Categories=  <CategeryChoose  cat1={cat1}  cat2={cat2}  cat3={cat3}  />
-    const winner= <Winner players={props.players}/>
+    const winner= <Winner players={props.players} reset={props.reset}/>
     return (<div>GAME {str} 
 
             {props.rounds!=0?Categories:winner}

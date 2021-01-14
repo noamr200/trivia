@@ -62,19 +62,31 @@ function QuestionShow(props)
         SetShowAnswer(true);
         
     }
-    
+    //No spaces between <span> and </span>
     console.log ("props",p);
     const AnswerComponent=<div><Answer currentAnswerText={p.correct_answer} currentAnswerIndex={AnswerIndex}  res={res} /> </div>
     const ContinueButton= <div> <a href="#/game"> <Button variant="success" onClick={props.callback} >Conitune Playing!</Button>  </a></div> 
    return (<div>  <p>"TODO" </p> <p> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>
-     <p>  Question:<span dangerouslySetInnerHTML={{__html: p.question}}></span>  </p>
+     <p>   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
         Answers:  
-        <p><Button variant="primary" value="1" onClick={answer}>1.</Button>{answersState[0]} </p>
-        <p><Button variant="primary" value="2" onClick={answer}>2.</Button>{answersState[1]} </p> 
-        <p><Button variant="primary" value="3" onClick={answer}>3.</Button>{answersState[2]} </p>
-        <p><Button variant="primary" value="4" onClick={answer}>4.</Button>{answersState[3]} </p>
+        <p>
+            <Button variant="primary" value="1" onClick={answer}>1.</Button> 
+            <span dangerouslySetInnerHTML={{__html:answersState[0]}}></span>  
+        </p>
+        <p>
+            <Button variant="primary" value="2" onClick={answer}>2.</Button>
+            <span dangerouslySetInnerHTML={{__html:answersState[1]}}></span> 
+        </p> 
+        <p>
+            <Button variant="primary" value="3" onClick={answer}>3.</Button>
+            <span dangerouslySetInnerHTML={{__html:answersState[2]}}></span> 
+        </p>
+        <p>
+            <Button variant="primary" value="4" onClick={answer}>4.</Button>
+            <span dangerouslySetInnerHTML={{__html:answersState[3]}}></span> 
+        </p>
         {showAnswer ?  AnswerComponent :""} 
-        { showAnswer ?  ContinueButton :"" }
+        {showAnswer ?  ContinueButton :"" }
     </div>)
 }
 export default QuestionShow;
