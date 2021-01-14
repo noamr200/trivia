@@ -41,7 +41,7 @@ function PlayersSetter(props)
         <option value="40">40 Questions</option>
     </select> </div>);
    */
-  const StartButton= <a href="#/Game" ><Button variant="warning">Start playing</Button> </a>;
+  const StartButton=<p> <a href="#/Game" ><Button variant="success" className="start-btn" size="lg" >Start playing The Game!</Button> </a></p>;
     return (<div>
         <Welcome/>
 
@@ -60,8 +60,10 @@ function PlayersSetter(props)
            
             <p><b>Please Enter your name player {n} </b></p>
             <b>Your Name:  </b><input type="text"  onChange={e => setName(e.target.value)}  /><br/>
-            <p></p>
+            <p></p>  
+
             <Button variant="primary" onClick={add}>{n>=2?"Add Another Player": "Add player"}</Button>
+            <p></p>  
             {n>=2? StartButton :""}
            
         </form>

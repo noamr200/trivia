@@ -1,0 +1,15 @@
+
+.my-btn
+{
+    border-radius: 40px ;
+    border-style: groove ;
+    color:black ;
+    font-size:24px ;
+    background-color: beige;
+    border-color:aquamarine;
+}
+.my-btn:hover
+{
+    background-color: beige;
+    color:blue;
+}

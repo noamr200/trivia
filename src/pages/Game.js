@@ -9,7 +9,7 @@ import Winner from "../components/Winner";
 import  { Redirect } from 'react-router-dom';
 function Game(props)
 {
-
+    
     function RandomThree()
     {
         //Difficulty level makes questions impossible to be identical

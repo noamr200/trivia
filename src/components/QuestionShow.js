@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Answer from "./Answer";
+import "./QuestionShow.css";
 import Button from 'react-bootstrap/Button';
 import React, { useEffect } from 'react';
 function QuestionShow(props)
@@ -70,19 +71,19 @@ function QuestionShow(props)
      <p>   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
         Answers:  
         <p>
-            <Button variant="primary" value="1" onClick={answer}>1.</Button> 
+            <Button className="my-btn" variant="primary" value="1" onClick={answer}>1.</Button> 
             <span dangerouslySetInnerHTML={{__html:answersState[0]}}></span>  
         </p>
         <p>
-            <Button variant="primary" value="2" onClick={answer}>2.</Button>
+            <Button className="my-btn" variant="primary" value="2" onClick={answer}>2.</Button>
             <span dangerouslySetInnerHTML={{__html:answersState[1]}}></span> 
         </p> 
         <p>
-            <Button variant="primary" value="3" onClick={answer}>3.</Button>
+            <Button  className="my-btn" variant="primary" value="3" onClick={answer}>3.</Button>
             <span dangerouslySetInnerHTML={{__html:answersState[2]}}></span> 
         </p>
         <p>
-            <Button variant="primary" value="4" onClick={answer}>4.</Button>
+            <Button className="my-btn" variant="primary" value="4" onClick={answer}>4.</Button>
             <span dangerouslySetInnerHTML={{__html:answersState[3]}}></span> 
         </p>
         {showAnswer ?  AnswerComponent :""} 
