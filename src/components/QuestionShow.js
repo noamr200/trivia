@@ -3,6 +3,8 @@ import Answer from "./Answer";
 import "./QuestionShow.css";
 import Button from 'react-bootstrap/Button';
 import React, { useEffect } from 'react';
+import { Link } from "react-router-dom";
+import  { Redirect } from 'react-router-dom';
 function QuestionShow(props)
 {
     console.log (props.ques);
@@ -61,39 +63,45 @@ function QuestionShow(props)
             props.players[turn].score-=points;
         }
         SetShowAnswer(true);
-        
+      
     }
+   
     //No spaces between <span> and </span>
     console.log ("props",p);
     const AnswerComponent=<div><Answer currentAnswerText={p.correct_answer} currentAnswerIndex={AnswerIndex}  res={res} /> </div>
     const ContinueButton= <div> <a href="#/game"> <Button variant="success" onClick={props.callback} >Conitune Playing!</Button>  </a></div> 
-   return (<div>  <p>"TODO" </p> <p> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>
-     <p>   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
-        Answers:  
-        <p>
-            <Button className="my-btn" variant="primary" value="1" onClick={() => answer(1)}>1.
-            <span dangerouslySetInnerHTML={{__html:answersState[0]}}></span>  
-            </Button> 
-            
-        </p>
-        <p>
-            <Button className="my-btn" variant="primary" value="2" onClick={() => answer(2)}>2.
-            <span dangerouslySetInnerHTML={{__html:answersState[1]}}></span> 
-            </Button>
+    const AnswerRequest = <p> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>
+    const QuestinoShower = <div className="question">
+    <p>   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
+       Answers:  
+       <p>
+           <Button className="my-btn" variant="primary" value="1" onClick={() => answer(1)}>1.
+           <span dangerouslySetInnerHTML={{__html:answersState[0]}}></span>  
+           </Button> 
            
-        </p> 
-        <p>
-            <Button  className="my-btn" variant="primary" value="3" onClick={() => answer(3)}>3.
-            <span dangerouslySetInnerHTML={{__html:answersState[2]}}></span> 
-            </Button>
-           
-        </p>
-        <p>
-            <Button className="my-btn" variant="primary" value="4" onClick={() => answer(4)}>4.
-            <span dangerouslySetInnerHTML={{__html:answersState[3]}}></span> 
-            </Button>
-           
-        </p>
+       </p>
+       <p>
+           <Button className="my-btn" variant="primary" value="2" onClick={() => answer(2)}>2.
+           <span dangerouslySetInnerHTML={{__html:answersState[1]}}></span> 
+           </Button>
+          
+       </p> 
+       <p>
+           <Button  className="my-btn" variant="primary" value="3" onClick={() => answer(3)}>3.
+           <span dangerouslySetInnerHTML={{__html:answersState[2]}}></span> 
+           </Button>
+          
+       </p>
+       <p>
+           <Button className="my-btn" variant="primary" value="4" onClick={() => answer(4)}>4.
+           <span dangerouslySetInnerHTML={{__html:answersState[3]}}></span> 
+           </Button>
+          
+       </p> </div>
+
+  return (<div>  <p>"TODO" </p> 
+        {!showAnswer ?  AnswerRequest: ""}
+        {!showAnswer ?  QuestinoShower: ""}
         {showAnswer ?  AnswerComponent :""} 
         {showAnswer ?  ContinueButton :"" }
     </div>)

@@ -1,6 +1,7 @@
 import * as QueryString from "query-string";
 import Button from 'react-bootstrap/Button';
 import { useLocation } from 'react-router-dom';
+import  { Redirect } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import QuestUtils from "../models/QuestionGetter";
 import QuestionShow from "./QuestionShow";
@@ -35,7 +36,7 @@ function Question(props)
         }, );
     },[]);
     console.log ("pp",props.callback);
-    const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players} callback={props.callback}/>;
+    const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players} callback={props.callback}  />;
     return (<div> Question Here: {ques!=null? cond:"loading"} 
     <a href="#/game"> <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </a>
      </div>);

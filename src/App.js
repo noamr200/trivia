@@ -21,10 +21,12 @@ function App(props) {
       SetCategories(response);
   }, );
   },[]);
-
- let t= players.map ((item,index) =>
+  
+  
+ 
+  let PlayersList = players.map ((item,index) =>
   {
-      return (<p key={index}>Player {item.number} your name is :  {item.name}  You have {item.score} Points</p>  );
+      return (<p key={index}> {item.name} (Player {item.number})  has  {item.score} Points</p>);
   });
    
   function setNumberOfRounds(e)
@@ -119,16 +121,17 @@ function App(props) {
  
   return (
     <div className="App">
+      <div className="info">  {PlayersList} </div>
       <header className="App-header">
       
 <HashRouter>
 
 <Route exact path="/" >  <PlayersSetter callback={check} RoundsCallback={setNumberOfRounds} players={players} counter={counter} /></Route>
 <Route exact path="/game" >  <Game  players={players} turn={turn} callback={SwitchTurn} reset={reset} categories={categories} rounds={rounds} /></Route>
-<Route exact path="/ques" > <Question players={players} turn={turn} callback={SwitchTurn} /> </Route>
+<Route exact path="/ques" > <Question players={players} turn={turn} callback={SwitchTurn}  /> </Route>
 </HashRouter>
 
-   <div>  {t} </div>
+   
    <p>{rounds} Rounds Left</p>
       </header>
     </div>
