@@ -21,7 +21,9 @@ function PlayersSetter(props)
                 alert ("You must give a name to the player before adding!");
                 return;
             }
-            
+
+            var audio = new Audio("/mp3/add.mp3");
+            audio.play();
             props.callback(obj)
             setTheRounds(rounds);
         }
@@ -34,6 +36,10 @@ function PlayersSetter(props)
             props.RoundsCallback(rounds);
         }
         /*
+        var audio = new Audio('audio_file.mp3');
+        audio.play();*/
+
+        /*
         const NumberSelection=(  <div> <select> onChange={setTheRounds}
         <option value="10">10 Questions</option>
         <option value="20" selected>20 Questions</option>
@@ -41,7 +47,7 @@ function PlayersSetter(props)
         <option value="40">40 Questions</option>
     </select> </div>);
    */
-  const StartButton=<p> <a href="#/Game" ><Button variant="success" className="start-btn" size="lg" >Start playing The Game!</Button> </a></p>;
+  const StartButton=<p className="startButton"> <a href="#/Game" ><Button variant="success" className="start-btn" size="lg" >Start playing The Game!</Button> </a></p>;
     return (<div>
         <Welcome/>
 
