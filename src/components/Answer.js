@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import "./Answer.css";
 function Answer(props)
 {
@@ -6,6 +6,7 @@ function Answer(props)
     let index=props.currentAnswerIndex;
     console.log (props.res);
     let right;
+   
     if (props.res.includes("right"))
          right=true;
     else 
@@ -14,22 +15,24 @@ function Answer(props)
     const answer= <span dangerouslySetInnerHTML={{__html:text}}></span> 
 
     useEffect(() => {
+    
+    var audio;
     if (props.res.includes("right")) 
     {
         console.log ("Yes");
-        var audio = new Audio("/mp3/right.mp3");
+        audio = new Audio("/mp3/right.mp3");
         audio.play();
-        right=true;
+        
     }
     else 
     {
         console.log ("No");
-        var audio = new Audio("/mp3/wrong.mp3");
+        audio = new Audio("/mp3/wrong.mp3");
         audio.play();
-        right=false;
+        
         
     }
-    },[]);
+    },[props.res]);
     const Right =<p className="a_res right" >{props.res}</p>
     const Wrong =<p className="a_res wrong" >{props.res}</p>
     

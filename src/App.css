@@ -10,8 +10,6 @@
 }
 
 
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,10 +21,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 
 .info 
 {
@@ -36,8 +30,9 @@
   border: 2px;
   border-color: gray ;
   border-style: groove;
+ 
 }
-.info>p
+.info>div
 {
   border-bottom-style: groove;
   border-bottom-color: gray;

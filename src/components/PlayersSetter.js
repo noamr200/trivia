@@ -1,13 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import Welcome from  "../pages/Welcome";
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./PlayersSetter.css"
-import Link from "react";
 function PlayersSetter(props)
 {
     const DEFAULT_ROUNDS_NUMBER=30;
-    let i=1;
-    let items=[];
     let n=props.counter;
     const [name,setName] = React.useState('');
     const [rounds,setRounds]=React.useState(DEFAULT_ROUNDS_NUMBER);

@@ -1,6 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import "./Winner.css";
-import  { Redirect,Link } from 'react-router-dom';
+import  { Link } from 'react-router-dom';
 function Winner(props)
 {
     let arr=[];
@@ -27,7 +26,8 @@ function Winner(props)
     
     return (<div>
             <div className="congratulations" >
-            <p >Congratulations {w.name}</p>
+            <p >Congratulations {w.name}!</p> 
+            <img src="/pics/trophy.jpg" alt="Trophy"/>
             <p   >{w.name} (Player {Number(index+1)}) You win the Game!  </p>
             <p  >With {w.score} points!</p> </div>
             <Link to="/" onClick={Another} className="btn btn-primary">Let's Play another Game</Link>

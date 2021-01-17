@@ -1,9 +1,7 @@
 import './App.css';
-import Welcome from  "./pages/Welcome";
 import PlayersSetter from "./components/PlayersSetter";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
-import categoryUtils from "./models/CategoroiesGetter";
+import getCategories from "./models/CategoroiesGetter";
 import Game from "./pages/Game";
 import { HashRouter, Route } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
@@ -15,7 +13,7 @@ function App(props) {
   const [categories,SetCategories]=useState([]);
   const [rounds,SetRounds]=useState(0); //0 means game over
   useEffect(() => {
-    let c =categoryUtils.getCategories().then (response=> { 
+    getCategories().then (response=> { 
       console.log (response);
       
       SetCategories(response);
@@ -26,7 +24,7 @@ function App(props) {
  
   let PlayersList = players.map ((item,index) =>
   {
-      return (<p key={index} > {item.name} (Player {item.number})  has  {item.score} Points </p> );
+      return (<div key={index} > {item.name} (Player {item.number})  has  {item.score} Points </div> );
   });
    
   function setNumberOfRounds(e)

@@ -3,8 +3,6 @@ import Answer from "./Answer";
 import "./QuestionShow.css";
 import Button from 'react-bootstrap/Button';
 import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
-import  { Redirect } from 'react-router-dom';
 function QuestionShow(props)
 {
     console.log (props.ques);
@@ -20,19 +18,20 @@ function QuestionShow(props)
     {
         return Math.floor(Math.random() * Math.floor(max));
     }
-    let correctIndex;
-
-    let answers=[];
+   
     
     useEffect(() => {
-       
+        
+        let correctIndex;
+        let answers=[];
+
         correctIndex=getRandomInt(4);
         answers=[];
         answers[correctIndex]=p.correct_answer+"--- Cheat --- this is  the correct answer";
     let j=0;
     for (let i=0;i<4;++i)
     {
-        if (i!=correctIndex) 
+        if (i!==correctIndex) 
         {
             answers[i]=p.incorrect_answers[j];
             ++j
@@ -41,7 +40,7 @@ function QuestionShow(props)
     }
     SetAnswerState(answers);
     SetAnswerIndex(correctIndex);
-      },[]);
+      },[p.correct_answer,p.incorrect_answers]);
 
   
     function answer(e)
