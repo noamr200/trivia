@@ -1,0 +1,27 @@
+.a_res
+{
+    font-size:36px;
+    font-weight:bold;
+    font-family: 'Potta One', cursive;
+   
+    background-color: burlywood;
+    border-style: groove;
+
+}
+.right
+{
+    color:rgb(122, 133, 26);
+}
+.wrong
+{
+    color:red;
+}
+.correct-answer
+{
+    font-size:36px;
+    font-weight:bold;
+    font-family: 'Potta One', cursive;
+    color:teal;
+    background-color: rgb(88, 57, 83);
+    border-style: groove;
+}

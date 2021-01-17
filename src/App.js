@@ -26,7 +26,7 @@ function App(props) {
  
   let PlayersList = players.map ((item,index) =>
   {
-      return (<p key={index}> {item.name} (Player {item.number})  has  {item.score} Points</p>);
+      return (<p key={index} > {item.name} (Player {item.number})  has  {item.score} Points </p> );
   });
    
   function setNumberOfRounds(e)

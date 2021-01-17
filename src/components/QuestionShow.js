@@ -70,9 +70,10 @@ function QuestionShow(props)
     console.log ("props",p);
     const AnswerComponent=<div><Answer currentAnswerText={p.correct_answer} currentAnswerIndex={AnswerIndex}  res={res} /> </div>
     const ContinueButton= <div> <a href="#/game"> <Button variant="success" onClick={props.callback} >Conitune Playing!</Button>  </a></div> 
-    const AnswerRequest = <p> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>
+    const AnswerRequest = <p className="ans1"> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>
     const QuestinoShower = <div className="question">
-    <p>   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
+    <p className="ques-txt">   <span dangerouslySetInnerHTML={{__html:p.question}}></span>   </p>
+    
        Answers:  
        <p>
            <Button className="my-btn" variant="primary" value="1" onClick={() => answer(1)}>1.
@@ -99,7 +100,7 @@ function QuestionShow(props)
           
        </p> </div>
 
-  return (<div>  <p>"TODO" </p> 
+  return (<div> 
         {!showAnswer ?  AnswerRequest: ""}
         {!showAnswer ?  QuestinoShower: ""}
         {showAnswer ?  AnswerComponent :""} 

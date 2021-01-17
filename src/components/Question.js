@@ -36,8 +36,10 @@ function Question(props)
         }, );
     },[]);
     console.log ("pp",props.callback);
+    const wait=<div className="spinner-border" role="status">
+    <span className="sr-only">Loading...</span> </div>
     const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players} callback={props.callback}  />;
-    return (<div> Question Here: {ques!=null? cond:"loading"} 
+    return (<div>  {ques!=null? cond:wait} 
     <a href="#/game"> <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </a>
      </div>);
 }

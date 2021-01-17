@@ -1,15 +1,47 @@
 
 .my-btn
 {
-    border-radius: 40px ;
-    border-style: groove ;
-    color:black ;
-    font-size:24px ;
+    border-style: groove;
+    border-bottom-width: 2px;
+    color: black;
+    border-radius: 0%;
+    font-size: 24px;
+    text-align: left;
+    width: 100%;
     background-color: beige;
-    border-color:aquamarine;
+    border-color: gray;
+    font-family: 'Potta One', cursive;
 }
 .my-btn:hover
 {
     background-color: beige;
     color:blue;
+}
+
+.question
+{
+    font-family: 'Potta One', cursive;
+    font-weight: bold;
+    background-color: burlywood;
+    color:black;
+    padding:6px;
+
+}
+.ques-txt
+{
+    border-bottom: 4px;
+    border-color: gray;
+    border-style: groove;
+}
+.ques-txt:hover
+{
+    color:darkslategray;
+}
+.ans1
+{
+    border-style:groove;
+    font-family: 'Potta One', cursive;
+    font-weight: bold;
+    color:peru;
+    background-color:rgb(17, 59, 54);
 }
