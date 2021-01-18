@@ -63,7 +63,8 @@ function App(props) {
     let max=Math.max(...arr)
     if (countIndex(arr,max) >1)  //We have two or more players with identical points
     {
-      SetRounds(5);
+     
+      SetRounds(Number(5*Number(counter-1)));
     }
     else 
     {

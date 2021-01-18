@@ -48,11 +48,11 @@ function PlayersSetter(props)
         <div className="question_select">
         <p>Please Choose number of Questions per player:</p>
         <select className="select-css" defaultValue={DEFAULT_ROUNDS_NUMBER} onChange={e => setRounds(e.target.value)}>
-                        <option value="2">2   Questions  I want a game to be really short</option>
-                        <option value="10">10 Questions  Because I like a game to be short!</option>
-                        <option value="20">20 Questions Because I Still like it short but not too much</option>
-                        <option value="30">30 Questions I Like A modernate length</option>
-                        <option value="40">40 Questions I like it long but not too long</option>
+                        <option value="2">2   Questions I want the game to be really short</option>
+                        <option value="10">10 Questions I want the game to be short!</option>
+                        <option value="20">20 Questions I want the game to be short but not too much</option>
+                        <option value="30">30 Questions I want A moderate length</option>
+                        <option value="40">40 Questions I want The game to be long but not too long</option>
                         <option value="50">50 Questions Let's sit  down for ages </option>
                     </select>
         </div>
