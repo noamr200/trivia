@@ -27,7 +27,6 @@ function App(props) {
    
   function setNumberOfRounds(e)
   {
-    console.log ("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee rounds",e);
     let roundall=e*counter;
     SetRounds(roundall);
   }

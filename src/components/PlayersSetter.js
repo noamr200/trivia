@@ -45,7 +45,7 @@ function PlayersSetter(props)
   const StartButton=<p className="startButton"> <a href="#/Game" ><Button variant="success" className="start-btn" size="lg" >Start playing The Game!</Button> </a></p>;
     return (<div>
         <Welcome/>
-
+        <div className="question_select">
         <p>Please Choose number of Questions per player:</p>
         <select className="select-css" defaultValue={DEFAULT_ROUNDS_NUMBER} onChange={e => setRounds(e.target.value)}>
                         <option value="2">2   Questions  I want a game to be really short</option>
@@ -55,9 +55,9 @@ function PlayersSetter(props)
                         <option value="40">40 Questions I like it long but not too long</option>
                         <option value="50">50 Questions Let's sit  down for ages </option>
                     </select>
+        </div>
 
-
-        <form>
+        <form className="new_player_form">
            
             <p className="please" ><b>Please Enter your name player {n} </b></p>
             <b>Your Name:  </b><input type="text" placeholder="Enter your name" onChange={e => setName(e.target.value)}  /><br/>

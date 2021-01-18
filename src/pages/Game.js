@@ -41,6 +41,6 @@ function Game(props)
       
         {props.rounds!==0?category1:""}
         {props.rounds!==0?Categories:winner}
-        <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </div>)
+        <Button variant="warning" onClick={callback} >Switch Turn (dev only)</Button>  </div>)
 }
 export default Game;
