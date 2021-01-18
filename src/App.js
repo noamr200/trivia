@@ -117,7 +117,7 @@ function App(props) {
 </HashRouter>
 
    
-   <p>{rounds} Rounds Left</p>
+    {/*<p>{rounds} Rounds Left</p> */}
       </header>
     </div>
   );

@@ -1,5 +1,5 @@
 import "./Game.css";
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import CategeryChoose from '../components/CategoryChoose';
 import Winner from "../components/Winner";
 import  { Redirect } from 'react-router-dom';
@@ -17,7 +17,7 @@ function Game(props)
     }
 
     let CategoriesRandom=props.categories;
-    let callback=props.callback;
+    //let callback=props.callback; //DEBUG ONLY
     let a=RandomThree();
     let turn=props.turn;
     let cat1=CategoriesRandom[a[0]];
@@ -41,6 +41,8 @@ function Game(props)
       
         {props.rounds!==0?category1:""}
         {props.rounds!==0?Categories:winner}
-        <Button variant="warning" onClick={callback} >Switch Turn (dev only)</Button>  </div>)
+       {/*  DEUBG ONLY
+       <Button variant="warning" onClick={callback} >Switch Turn (dev only)</Button>*/}  
+       </div>)
 }
 export default Game;

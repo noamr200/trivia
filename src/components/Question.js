@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import QuestionGetter from "../models/QuestionGetter";
@@ -32,7 +32,8 @@ function Question(props)
     <span className="sr-only">Loading...</span> </div>
     const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players} callback={props.callback}  />;
     return (<div>  {ques!=null? cond:wait} 
-    <a href="#/game"> <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </a>
+    {/* DEBUG PURPOSES ONLY (dev only line)
+    <a href="#/game"> <Button variant="warning" onClick={props.callback} >Switch Turn (dev only)</Button>  </a>*/}
      </div>);
 }
 export default Question;

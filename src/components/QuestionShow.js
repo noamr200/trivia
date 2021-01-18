@@ -25,7 +25,7 @@ function QuestionShow(props)
 
         correctIndex=getRandomInt(4);
         answers=[];
-        answers[correctIndex]=p.correct_answer+"--- Cheat --- this is  the correct answer";
+        answers[correctIndex]=p.correct_answer ; // DEBUG ONLY CHEAT LINE +"--- Cheat --- this is  the correct answer";
         let j=0;
         for (let i=0;i<4;++i)
         {
