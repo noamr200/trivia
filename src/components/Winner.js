@@ -1,5 +1,6 @@
 import "./Winner.css";
 import  { Link } from 'react-router-dom';
+import  { useEffect } from 'react';
 function Winner(props)
 {
     let arr=[];
@@ -12,8 +13,11 @@ function Winner(props)
     let max=Math.max(...arr)
     let index=arr.indexOf(max);
     let w=p[index];
-    var audio = new Audio("/mp3/fanfare.mp3");
-    audio.play();
+    useEffect(() => { //play once once
+        var audio = new Audio("/mp3/fanfare.mp3");
+        audio.play();
+    },[]);
+
     function Another()
     {
         props.reset();
