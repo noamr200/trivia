@@ -4,7 +4,6 @@ function Answer(props)
 {
     let text=props.currentAnswerText;
     let index=props.currentAnswerIndex;
-    console.log (props.res);
     let right;
    
     if (props.res.includes("right"))
@@ -19,14 +18,12 @@ function Answer(props)
     var audio;
     if (props.res.includes("right")) 
     {
-        console.log ("Yes");
         audio = new Audio("/mp3/right.mp3");
         audio.play();
         
     }
     else 
     {
-        console.log ("No");
         audio = new Audio("/mp3/wrong.mp3");
         audio.play();
         

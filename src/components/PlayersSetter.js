@@ -27,9 +27,7 @@ function PlayersSetter(props)
 
         function setTheRounds(e) 
         {
-            console.log (e);
             setRounds(e);
-            console.log ("Number of rounds",e);
             props.RoundsCallback(rounds);
         }
         /*
@@ -50,7 +48,7 @@ function PlayersSetter(props)
 
         <p>Please Choose number of Questions per player:</p>
         <select className="select-css" defaultValue={DEFAULT_ROUNDS_NUMBER} onChange={e => setRounds(e.target.value)}>
-                        <option value="2">2(dev only)</option>
+                        <option value="2">2   Questions  I want a game to be really short</option>
                         <option value="10">10 Questions  Because I like a game to be short!</option>
                         <option value="20">20 Questions Because I Still like it short but not too much</option>
                         <option value="30">30 Questions I Like A modernate length</option>

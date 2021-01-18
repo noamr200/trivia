@@ -7,9 +7,7 @@ function Question(props)
 {
     //https://opentdb.com/api.php?amount=1&category=16&difficulty=medium&type=multiple
     const [ques,SetQues]=useState(null);
-    console.log ("QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
     const location = useLocation();
-    console.log(location.search);
     let difficulty="medium";
     let catNum=location.search.charAt(5)+location.search.charAt(6);
     let points=location.search.charAt(location.search.length-1)*2000;
@@ -25,14 +23,11 @@ function Question(props)
     {
         difficulty="hard";
     }
-    console.log ("cat",catNum);
     useEffect(() => {
             QuestionGetter(catNum,difficulty).then (response=> { 
-            console.log (response.data.results);
             SetQues(response.data.results);
         }, );
     },[catNum,difficulty]);
-    console.log ("pp",props.callback);
     const wait=<div className="spinner-border" role="status">
     <span className="sr-only">Loading...</span> </div>
     const cond=<QuestionShow ques={ques} points={points} turn={props.turn} players={props.players} callback={props.callback}  />;

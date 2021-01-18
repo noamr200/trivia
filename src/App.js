@@ -14,8 +14,6 @@ function App(props) {
   const [rounds,SetRounds]=useState(0); //0 means game over
   useEffect(() => {
     getCategories().then (response=> { 
-      console.log (response);
-      
       SetCategories(response);
   }, );
   },[]);
@@ -31,22 +29,18 @@ function App(props) {
   {
     console.log ("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee rounds",e);
     let roundall=e*counter;
-    console.log (roundall);
     SetRounds(roundall);
   }
 
   function SwitchTurn(e)
   {
-    console.log (counter);
     if (turn>=counter-2)  
     {
       SetTurn(0);
-      console.log ("0 tt");
     }
     else
     {
       SetTurn( (turn+1));
-      console.log (turn ,"tt");
     }
 
     if (rounds-1===0 && counter>1) 
@@ -57,24 +51,19 @@ function App(props) {
     {
       SetRounds(rounds-1);
     }
-    console.log("dkdkdkd",turn);
+
   }
 
   function checkIdenticalPoints()
   {
-    console.log ("draw!!!!");
     let arr=[];
     for (let i=0;i<players.length;++i)
     {
       arr[i]=players[i].score; //we want numbers only
     }
-    console.log (players);
-    console.log (arr);
     let max=Math.max(...arr)
-    console.log (max);
     if (countIndex(arr,max) >1)  //We have two or more players with identical points
     {
-      console.log ("Another round");
       SetRounds(5);
     }
     else 
@@ -97,7 +86,6 @@ function App(props) {
         }
        
     }   
-    console.log ("count",count);
     return count;
 }    
 
@@ -114,7 +102,6 @@ function App(props) {
   {
     SetPlayers(players.concat(e));
     SetCounter(counter+1);
-    console.log ("players",players);
   }
  
   return (

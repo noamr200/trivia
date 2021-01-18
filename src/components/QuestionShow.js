@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import React, { useEffect } from 'react';
 function QuestionShow(props)
 {
-    console.log (props.ques);
     let p=props.ques[0];
     let points=props.points;
     let turn =props.turn;
@@ -13,14 +12,13 @@ function QuestionShow(props)
     const [answersState,SetAnswerState]=useState([]);
     const [AnswerIndex,SetAnswerIndex]=useState(-1);
     const [res,SetRes]=useState("");
-    console.log(p.question);
     function getRandomInt(max) 
     {
         return Math.floor(Math.random() * Math.floor(max));
     }
    
-    
-    useEffect(() => {
+    useEffect(() => 
+    {
         
         let correctIndex;
         let answers=[];
@@ -28,13 +26,13 @@ function QuestionShow(props)
         correctIndex=getRandomInt(4);
         answers=[];
         answers[correctIndex]=p.correct_answer+"--- Cheat --- this is  the correct answer";
-    let j=0;
-    for (let i=0;i<4;++i)
-    {
-        if (i!==correctIndex) 
+        let j=0;
+        for (let i=0;i<4;++i)
         {
-            answers[i]=p.incorrect_answers[j];
-            ++j
+            if (i!==correctIndex) 
+            {
+                answers[i]=p.incorrect_answers[j];
+                ++j
         }
         
     }
@@ -45,8 +43,6 @@ function QuestionShow(props)
   
     function answer(e)
     {
-        console.log (e);
-        console.log ("target",e,"correctindex",AnswerIndex);
         if (showAnswer) 
         {
             return;
@@ -66,7 +62,6 @@ function QuestionShow(props)
     }
    
     //No spaces between <span> and </span>
-    console.log ("props",p);
     const AnswerComponent=<div><Answer currentAnswerText={p.correct_answer} currentAnswerIndex={AnswerIndex}  res={res} /> </div>
     const ContinueButton= <div> <a href="#/game"> <Button variant="success" onClick={props.callback} >Conitune Playing!</Button>  </a></div> 
     const AnswerRequest = <p className="ans1"> {props.players[turn].name} (Player {Number(turn+1)}) answer the question</p>

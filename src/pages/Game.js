@@ -18,15 +18,12 @@ function Game(props)
 
     let CategoriesRandom=props.categories;
     let callback=props.callback;
-    console.log (callback);
     let a=RandomThree();
     let turn=props.turn;
     let cat1=CategoriesRandom[a[0]];
     let cat2=CategoriesRandom[a[1]];
     let cat3=CategoriesRandom[a[2]];
-    console.log (cat1);
     if (!props.turn) turn=0;
-    console.log (props.players,props.turn);
     
     if (props.players[turn]===undefined) 
     {
