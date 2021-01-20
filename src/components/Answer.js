@@ -33,7 +33,7 @@ function Answer(props)
     const Right =<p className="a_res right" >{props.res}</p>
     const Wrong =<p className="a_res wrong" >{props.res}</p>
     
-    return (<div> 
+    return (<div className="answering"> 
                 {right?Right:Wrong}
                 <p className="correct-answer">Correct answer:{Number(index+1)}.{answer}</p>
           </div>);

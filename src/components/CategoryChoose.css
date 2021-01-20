@@ -6,6 +6,8 @@
     border-radius:2px;
     font-family: 'Potta One', cursive;
     text-align: left;
+    animation-duration: 2s;
+    animation-name: slidein;
 }
 .categories>a>p:hover
 {

@@ -25,6 +25,8 @@
     background-color: burlywood;
     color:black;
     padding:6px;
+    animation-duration: 2s;
+    animation-name: slidein;
 
 }
 .ques-txt
@@ -44,4 +46,6 @@
     font-weight: bold;
     color:peru;
     background-color:rgb(17, 59, 54);
+    animation-duration: 2s;
+    animation-name: slidein;
 }

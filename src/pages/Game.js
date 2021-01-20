@@ -5,14 +5,15 @@ import Winner from "../components/Winner";
 import  { Redirect } from 'react-router-dom';
 function Game(props)
 {
-
+    const NO_QUESTION=-1;
+    const NUMBER_OF_CATEGORIES=23;
     function RandomThree()
     {
         //Difficulty level makes questions impossible to be identical
-        let n1=-1,n2=-1,n3=-1;
-        n1=Math.floor(Math.random() * 23);
-        n2=Math.floor(Math.random() * 23);
-        n3=Math.floor(Math.random() * 23);
+        let n1=NO_QUESTION,n2=NO_QUESTION,n3=NO_QUESTION;
+        n1=Math.floor(Math.random() * NUMBER_OF_CATEGORIES);
+        n2=Math.floor(Math.random() * NUMBER_OF_CATEGORIES);
+        n3=Math.floor(Math.random() * NUMBER_OF_CATEGORIES);
         return [n1,n2,n3];
     }
 
@@ -23,7 +24,9 @@ function Game(props)
     let cat1=CategoriesRandom[a[0]];
     let cat2=CategoriesRandom[a[1]];
     let cat3=CategoriesRandom[a[2]];
-    if (!props.turn) turn=0;
+    
+    if (!props.turn) 
+        turn=0;
     
     if (props.players[turn]===undefined) 
     {

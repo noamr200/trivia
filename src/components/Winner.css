@@ -7,9 +7,24 @@
     background-color:burlywood;
     color:rgb(33, 88, 56);
     border-color:gray;
+    animation-duration: 4s;
+    animation-name: slide_bottom;
 }
 .congratulations>img 
 {
     height: 310px;
     width: 400px;
 }
+
+
+@keyframes slide_bottom {
+    from {
+      margin-bottom: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-bottom: 0%;
+      width: 100%;
+    }
+  }

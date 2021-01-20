@@ -75,6 +75,11 @@
   {
     color:slateblue !important;
   }
+  .start-btn
+  {
+    animation-duration: 2s;
+    animation-name: slidein;
+  }
   .please 
   {
     margin-top: 18px;

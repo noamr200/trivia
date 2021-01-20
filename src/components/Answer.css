@@ -25,3 +25,8 @@
     background-color: rgb(88, 57, 83);
     border-style: groove;
 }
+.answering
+{
+    animation-duration: 2s;
+    animation-name: slidein;
+}
