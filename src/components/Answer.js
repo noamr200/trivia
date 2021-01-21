@@ -6,6 +6,7 @@ function Answer(props)
     let index=props.currentAnswerIndex;
     let right;
    
+
     if (props.res.includes("right"))
          right=true;
     else 
@@ -18,13 +19,13 @@ function Answer(props)
     var audio;
     if (props.res.includes("right")) 
     {
-        audio = new Audio("https://github.com/noamr200/trivia/raw/main/public/mp3/right.mp3");
+        audio = new Audio(process.env.PUBLIC_URL+"/mp3/right.mp3");
         audio.play();
         
     }
     else 
     {
-        audio = new Audio("https://github.com/noamr200/trivia/raw/main/public/mp3/wrong.mp3");
+        audio = new Audio(process.env.PUBLIC_URL+"/mp3/wrong.mp3");
         audio.play();
         
         

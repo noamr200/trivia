@@ -9,12 +9,12 @@ function Winner(props)
     {
         arr[i]=p[i].score; //Only numbers we want
     }
-
+    const picPath= process.env.PUBLIC_URL+"/pics/trophy.jpg";
     let max=Math.max(...arr)
     let index=arr.indexOf(max);
     let w=p[index];
     useEffect(() => { //play once once
-        var audio = new Audio("https://github.com/noamr200/trivia/raw/main/public/mp3/fanfare.mp3");
+        var audio = new Audio(  process.env.PUBLIC_URL+"/mp3/fanfare.mp3");
         audio.play();
     },[]);
 
@@ -27,7 +27,7 @@ function Winner(props)
             <div className="congratulations" >
             <p>Congratulations {w.name}!</p> 
            {/* <img src="/pics/trophy.jpg" alt="Trophy"/> */}
-           <img src="https://github.com/noamr200/trivia/raw/main/public/pics/trophy.jpg" alt ="Trophy"/>
+           <img src={picPath} alt ="Trophy"/>
             <p>{w.name} (Player {Number(index+1)}) You win the Game!  </p>
             <p>With {w.score} points!</p> </div>
             <Link to="/" onClick={Another} className="btn btn-primary">Let's Play another Game</Link>
