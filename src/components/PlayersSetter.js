@@ -19,7 +19,7 @@ function PlayersSetter(props)
                 return;
             }
 
-            var audio = new Audio("/mp3/add.mp3");
+            var audio = new Audio("https://github.com/noamr200/trivia/raw/main/public/mp3/add.mp3");
             audio.play();
             props.callback(obj)
             setTheRounds(rounds);
